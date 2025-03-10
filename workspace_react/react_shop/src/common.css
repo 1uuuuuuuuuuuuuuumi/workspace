@@ -1,0 +1,52 @@
+/* ------- 공통 input 태그 디자인 ------- */
+.my-input {
+  border: none;
+  padding: 5px 6px;
+  border-radius: 6px;
+  outline: 1px solid #fa9595;;
+}
+
+.my-input:focus {
+  border: 1.5px solid #fd5252;
+}
+
+.wide {
+  width: 100%;
+}
+
+/* ------- 공통 button 태그 디자인 ------- */
+.btn {
+  padding: 3px 12px;
+  width: 80px;
+  /* font-size: 0.8rem; */
+  background-color: #A1EEBD;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #F6D6D6;
+}
+
+.btn:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+.btn-large {
+  width: 120px;
+}
+
+.btn-small {
+  width: 60px;
+}
+
+
+
+textarea {
+  resize: none;
+}
+

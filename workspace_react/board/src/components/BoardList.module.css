@@ -1,0 +1,13 @@
+.list {
+  width: 600px;
+  border: 1px solid black;
+}
+
+.list > thead {
+  background-color: aqua;
+}
+
+.update {
+  width: 600px;
+  border: 1px solid black;
+}

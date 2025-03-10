@@ -1,0 +1,26 @@
+.detail_table {
+  width: 100%;
+  border: 1px solid #7BD3EA;
+}
+
+.detail_table tr, .detail_table td {
+  border: 1px solid #7BD3EA;
+}
+
+.detail_table tr {
+  text-align: center;
+}
+
+.detail_table td {
+  padding: 6px;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+.detail_btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}

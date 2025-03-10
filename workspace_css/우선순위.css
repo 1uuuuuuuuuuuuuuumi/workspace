@@ -1,0 +1,23 @@
+/* 
+1위 - !important 속성이 붙은 것
+2위 - 인라인 스타일
+3위 - id 선택자
+4위 - 클래스 선택자
+5위 - 태그 선택자
+
+중복되지않는건 적용됨
+*/
+
+.d1 {
+  background-color: aqua;
+}
+
+/* 뒤에 !important 붙이면 강제로 1등 만들어버림 */
+div {
+  background-color: blueviolet !important;
+}
+
+#ppp {
+  background-color: crimson;
+  color: white;
+}

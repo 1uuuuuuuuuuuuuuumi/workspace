@@ -1,0 +1,54 @@
+.item_info_container {
+  display: flex;
+  gap: 2rem;
+}
+
+.list_div {
+  width: 50%;
+}
+
+.detail_div {
+  width: 50%;
+}
+
+.list_table {
+width: 100%;
+text-align: center;
+}
+
+.list_table thead tr {
+  border-top: 1.5px solid #FFF9BF;
+  border-bottom: 1px solid #FFF9BF;
+  background-color: #fcbaba;
+  color: white;
+  font-weight: bold;
+}
+
+.list_table tbody tr {
+  border-bottom: 1px solid #fcbaba;
+}
+
+.list_table td {
+  padding: 6px;
+}
+
+.list_table tbody tr:nth-child(even) {
+  background-color: #FFF9BF;
+}
+
+.list_table tbody tr:hover {
+  background-color: #ff000023;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+p {
+  margin-top: 20px;
+}
+
+p > span {
+  color: #FF8A8A;
+  font-weight: bold;
+}

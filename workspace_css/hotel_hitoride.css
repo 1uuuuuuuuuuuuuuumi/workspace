@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Montserrat", sans-serif; 
+}
+
+body {
+  background-color: rgb(228, 244, 250);
+}
+
+.container {
+  width: 360px;
+  margin: 70px auto;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px lightblue;
+}
+
+.room {
+  position: relative;
+}
+
+.house {
+  width: 360px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  transition: all 1.1s;
+}
+
+.fa-heart {
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.gr {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.p1 {
+  font-weight: bold;
+  margin: 5px 10px;
+}
+
+.p2 {
+  font-weight: bold;
+  color: rgb(252, 137, 7);
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+.p3 {
+  color: gray;
+  margin: 5px 10px;
+}
+
+hr {
+  color: rgb(255, 255, 255);
+  margin: 15px;
+}
+
+.num {
+  font-weight: bold;
+  margin: 5px;
+}
+
+.real {
+  margin: 20px;
+}
+
+.bedbath {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 0.9rem;
+}
+
+.face {
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid lightblue;
+}
+
+.faceinfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  gap: 10px
+  ;
+}
+
+
+.l1 {
+  font-weight: bold;
+}
+
+button {
+  width: 90px;
+  height: 30px;
+  background-color: rgb(0, 230, 50);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.house:hover {
+  scale: 1.1;
+}

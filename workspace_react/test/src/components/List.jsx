@@ -1,0 +1,63 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+const List = ({setBoard, setIsShow}) => {
+  const [boardList, setBoardList] = useState([]);
+  //그림 다 그린 후(마운트, 컴포넌트가 리렌더 될때)
+  useEffect(() => {
+    axios
+      .get("/api/getBoardList")
+      .then((res) => {
+        console.log(res.data);
+        setBoardList(res.data);
+      })
+      .catch((error) => {
+        console.log("오류발생");
+        console.log(error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <table className="list-table">
+        <colgroup>
+          <col width={"10%"} />
+          <col width={"*"} />
+          <col width={"20%"} />
+          <col width={"20%"} />
+        </colgroup>
+        <thead>
+          <tr>
+            <td>No</td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>조회수</td>
+          </tr>
+        </thead>
+        <tbody>
+          {boardList.map((board, i) => {
+            return (
+              <tr key={i}>
+                <td>{boardList.length - i}</td>
+                <td>
+                  <span onClick={(e) => {
+                    for(let i = 0; i < boardList.length; i++){
+                      if(boardList[i].boardNum == board.boardNum){
+                        setBoard(boardList[i]);
+                      }
+                    }
+                    setIsShow(true);
+                  }}>{board.title}</span>
+                </td>
+                <td>{board.writer}</td>
+                <td>{board.readCnt}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default List;

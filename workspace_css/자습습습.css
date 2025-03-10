@@ -1,0 +1,23 @@
+.container {
+  height: 60px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  align-items: center;
+}
+
+.container > div:first-child > span {
+  color: white;
+}
+
+.container > div:last-child > ul {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container > div:last-child > ul > li {
+  color: white;
+}
+

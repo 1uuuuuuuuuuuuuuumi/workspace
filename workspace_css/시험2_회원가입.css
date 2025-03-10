@@ -1,0 +1,92 @@
+.container {
+  width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  margin: 20px 0px;
+}
+
+tr, td {
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+.body > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.body {
+  margin: 60px 0px;
+}
+
+td:first-child {
+  width: 15%;
+  background-color: rgb(243, 243, 243);
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.mini {
+  font-size: 0.9rem;
+}
+
+.text {
+  height: 27px;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+}
+
+.btn {
+  background-color: rgb(248, 248, 248);
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  height: 27px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  border-color: gray;
+}
+
+.addr1 {
+  width: 70px;
+}
+
+.addr2 {
+  width: 400px;
+}
+
+input {
+  margin: 3px;
+}
+
+select {
+  width: 70px;
+  height: 27px;
+  border: 1px solid lightgray;
+}
+
+.tel {
+  width: 70px;
+  height: 27px;
+}
+
+.y {
+  width: 80px;
+}
+
+.m {
+  width: 50px;
+}
+
+.d {
+  width: 50px;
+}

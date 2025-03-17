@@ -1,14 +1,22 @@
-import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { icon } from "../constants/icons";
 import { data } from "../data/data";
+import Task from "./Task";
 
 //
-const CartList = () => {  
+const CartList = () => {
   // console.log(Math.max(1, 5, 3));
 
   const [cartList, setCartList] = useState(data);
-  const [newItem, setNewItem] = useState('');
+  const [newItem, setNewItem] = useState("");
 
   //max값 구하는 방법
   //첫번째 방법
@@ -17,7 +25,6 @@ const CartList = () => {
   //두번째 방법
   // const end = Math.max(...cartList.map((e, i) => {return e.id})) + 1;
 
-
   return (
     <View>
       <Text style={styles.cartList}>CartList</Text>
@@ -25,46 +32,48 @@ const CartList = () => {
       <Image source={icon_delete} />
       <Image source={icon.ICON_EDIT} /> */}
 
-     
       {cartList.map((e, i) => {
         return (
-          <View key={i} style={styles.container}>
-            <Image source={icon.ICON_EDIT} />
-            <Text style={styles.title}>{e.item}</Text>
-            <Image source={icon.ICON_DELETE} 
-            style={styles.img}
-            />
-          </View>
+          <Task 
+            key={i} 
+            e={e} 
+            cartList={cartList} 
+            setCartList={setCartList} />
         );
       })}
 
       <View>
-        <TextInput 
+        <TextInput
           style={styles.input}
           value={newItem}
-          onChangeText={text => setNewItem(text)}
+          onChangeText={(text) => setNewItem(text)}
           //키보드의 완료, enter 키를 눌렀을 때 실행하는 이벤트
           onSubmitEditing={() => {
             //max id + 1 구하기
             let max = cartList[0].id;
-            for(const e of cartList){
-              if(max < e.id){
+            for (const e of cartList) {
+              if (max < e.id) {
                 max = e.id;
               }
             }
 
             //max값 구하는 방법 (13번줄 참고)
-            const max1 = Math.max(...cartList.map((e, i) => {return e.id}));
+            const max1 = Math.max(
+              ...cartList.map((e, i) => {
+                return e.id;
+              })
+            );
 
             //저장할 객체를 생성
             const newData = {
-              id : max + 1,
-              item : newItem
+              id: max + 1,
+              item: newItem,
             };
             //cartList에 저장
             setCartList([...cartList, newData]);
-            setNewItem('');
-          }}/>
+            setNewItem("");
+          }}
+        />
       </View>
     </View>
   );
@@ -73,29 +82,7 @@ const CartList = () => {
 export default CartList;
 
 const styles = StyleSheet.create({
-  container: {
-    borderWidth: 1,
-    margin: 12,
-    backgroundColor: "#FDF06F",
-    borderRadius: 5,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    gap: 8,
-  },
-  title: {
-    flex: 1,
-    fontSize: 18
-  },
-  img: {
-    width: 20,
-    height: 20,
-  },
-  input:{
-    borderWidth : 1
-  },
-  cartList:{
-    color : '#D31B33',
-    fontSize : 50
+  input: {
+    borderWidth: 1
   }
 });

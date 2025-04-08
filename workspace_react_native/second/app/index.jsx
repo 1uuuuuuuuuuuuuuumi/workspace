@@ -23,7 +23,7 @@ const MainScreen = () => {
         <StatusBar 
           barStyle={"light-content"} 
           backgroundColor={"#EDB5BD"} />
-          
+
         {/* <Login /> */}
         <CartList />
       </SafeAreaView>
@@ -35,6 +35,6 @@ export default MainScreen;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1, //부모태그 꽉채운다
-  },
+    flex: 1 //부모태그 꽉채운다
+  }
 });

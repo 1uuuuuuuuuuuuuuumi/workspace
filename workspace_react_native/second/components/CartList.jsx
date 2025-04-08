@@ -34,11 +34,7 @@ const CartList = () => {
 
       {cartList.map((e, i) => {
         return (
-          <Task 
-            key={i} 
-            e={e} 
-            cartList={cartList} 
-            setCartList={setCartList} />
+          <Task key={i} e={e} cartList={cartList} setCartList={setCartList} />
         );
       })}
 
@@ -57,7 +53,7 @@ const CartList = () => {
               }
             }
 
-            //max값 구하는 방법 (13번줄 참고)
+            //max값 구하는 방법
             const max1 = Math.max(
               ...cartList.map((e, i) => {
                 return e.id;
@@ -83,6 +79,6 @@ export default CartList;
 
 const styles = StyleSheet.create({
   input: {
-    borderWidth: 1
-  }
+    borderWidth: 1,
+  },
 });

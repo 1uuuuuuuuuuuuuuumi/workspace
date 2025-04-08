@@ -7,6 +7,7 @@ const MyTextInput = ({ placeholder = "", ...props }) => {
       style={styles.input}
       placeholder={placeholder}
       {...props}
+      
       // ★ 기본적인 속성 ★ //
       // secureTextEntry    //type='password'
       returnKeyType="next" //자판 UI의 완료를 ➔ 다음으로 변경

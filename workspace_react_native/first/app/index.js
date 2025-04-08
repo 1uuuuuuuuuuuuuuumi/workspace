@@ -4,7 +4,9 @@ import { Pressable } from "react-native";
 import Style1 from "../components/Style1";
 import Style2 from "../components/Style2";
 
-//rnfes : 리액트네이티브방법으로 함수만들어주고 expo도 넣어주고 스타일시트도 할수있게 기본적인 코드도 넣어주세요 ~ 라는 의미
+//rnfes : 리액트네이티브방법으로 함수만들어주고,
+//        expo도 넣어주고,
+//        스타일시트도 할수있게 기본적인 코드도 넣어주세요 ~ 라는 의미
 
 //View -> div
 //Text -> p *주의:모든 글자는 반드시 Text 컴포넌트 안에서 작업

@@ -1,6 +1,9 @@
 package com.green.security_exam.config;
 
+import com.green.security_exam.jwt.JwtConfirmFilter;
+import com.green.security_exam.jwt.JwtUtil;
 import com.green.security_exam.jwt.LoginFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,8 +23,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration //객체 생성 + 해당 클래스에 설정 내용이 들어있음을 알려줌
 @EnableWebSecurity //해당 클래스가 security 설정을 컨트롤할 수 있도록 세팅하는 어노테이션
+@RequiredArgsConstructor
 @EnableMethodSecurity(prePostEnabled = true, securedEnabled = true) //메서드 보안 활성화
 public class SecurityConfig {
+  private final JwtUtil jwtUtil;
 
   /*
   * 실제 시큐리티의 인증 & 인가에 대한 설정 코드를 작성하는 메서드
@@ -32,20 +37,25 @@ public class SecurityConfig {
     AuthenticationManager authenticationManager = authConfig.getAuthenticationManager();
 
     http.cors(Customizer.withDefaults()) //아래 설정한 cors 내용을 사용 하겠다.
-            .csrf(csrf -> csrf.disable())
+            .csrf(csrf -> csrf.disable()) // csrf 보안 비활성화
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            //인증 및 인가에 대한 설정 부분!!!
+//            ★★★★★★★ 인증 및 인가에 대한 설정 부분!!! ★★★★★★★
             .authorizeHttpRequests(auth -> //매개변수는끝..
 //                auth.anyRequest().permitAll() //여기만 컨트롤 하면됨. 나머지는 복붙 ..
-                  auth.requestMatchers("/test2", "/test1").authenticated()
+                  auth.requestMatchers("/test2").authenticated()
+                          .requestMatchers("/test3").hasRole("ADMIN")
                           .anyRequest().permitAll()
             );
 
+    //모든 요청에서 토큰을 검증하는 JwtConfirmFilter 클래스를 SecurityFilterChain에 추가
+    //JwtConfirmFilter 클래스는 LoginFilter가 진행되기 전에 실행되도록 설정 함
+    http.addFilterBefore(new JwtConfirmFilter(jwtUtil), LoginFilter.class);
+
     //원래 로그인 요청을 받는 UsernamePasswordAuthenticationFilter 대신
     //우리가 커스터마이징한 LoginFilter를 사용하도록 필터 교체!
-    http.addFilterAt(new LoginFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class);
+    http.addFilterAt(new LoginFilter(authenticationManager, jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
     return http.build();
   }

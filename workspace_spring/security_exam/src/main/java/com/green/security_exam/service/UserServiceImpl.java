@@ -15,4 +15,10 @@ public class UserServiceImpl implements UserService{
   public void join(MemberDTO memberDTO) {
     userMapper.join(memberDTO);
   }
+
+  //<!--로그인하려는 회원 정보 조회-->
+  @Override
+  public MemberDTO getMemberForLogin(String memEmail) {
+    return userMapper.getMemberForLogin(memEmail);
+  }
 }

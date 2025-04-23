@@ -9,6 +9,8 @@ import Menu from './components/Menu'
 import { jwtDecode } from 'jwt-decode'
 import { useEffect } from 'react'
 import { axiosInstance } from './redux/axiosInstance'
+import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedAdminRoute from './components/ProtectedAdminRoute'
 
 
 function App() {
@@ -26,8 +28,16 @@ function App() {
           <Route path='' element={<div>메인페이지</div>}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/join' element={<Join />}/>
-          <Route path='/user' element={<UserPage/>}/>          
-          <Route path='/admin' element={<Admin />}/>
+
+          {/* 누구한테 보여줄것인지 판단 잘 하기(권한) */}
+          <Route path='/user' element={
+            <ProtectedRoute><UserPage/></ProtectedRoute>
+          }/>          
+
+          <Route path='/admin' element={
+            <ProtectedAdminRoute><Admin /></ProtectedAdminRoute>
+          }/>
+
       </Routes>
     </div>
   )

@@ -28,6 +28,8 @@ const Login = () => {
       alert('로그인 성공');
       console.log(res.headers['authorization']);
       dispatch(loginReducer(res.headers['authorization']));
+
+      nav('/');
     })
     .catch(e => {
       //로그인 검증 실패 시 서버에서 401 상태코드를 응답

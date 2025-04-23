@@ -33,7 +33,7 @@
             #{memEmail}
             ,#{memPw}
             ,#{memName}
-            ,#{memRole}
+            ,'ROLE_USER'
         )
     </insert>
 
